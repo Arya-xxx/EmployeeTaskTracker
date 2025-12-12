@@ -7,8 +7,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const authRoutes = require("./routes/auth.routes");
-// const userRoutes = require("./routes/user.routes");
-// const taskRoutes = require("./routes/task.routes");
+const userRoutes = require("./routes/user.routes");
+const taskRoutes = require("./routes/task.routes");
 
 const app = express();
 
@@ -23,8 +23,8 @@ app.use(morgan("dev"));
 // // Routes
 // // ============================
 app.use("/auth", authRoutes);
-// app.use("/users", userRoutes);
-// app.use("/tasks", taskRoutes);
+app.use("/users", userRoutes);
+app.use("/tasks", taskRoutes);
 
 console.log("APP FILE LOADED");
 

@@ -1,7 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/sequelize");
 
-class User extends Model {}
+class User extends Model {
+  static associate(models) {
+    this.hasMany(models.Task, { foreignKey: "assignedTo" });
+}
+
+}
 
 User.init(
   {
